@@ -95,7 +95,7 @@ const App = () => {
         border="2px solid black"
         borderRadius={15}
       >
-        <Heading mb={5}>CIMAP Trial</Heading>
+        <Heading mb={5}>MAPML</Heading>
         <form onSubmit={handleFormSubmit} style={{ width: "100%" }}>
           <Box border="1px dashed blue" p={3} mb={3} borderRadius={15}>
             <FormControl>
