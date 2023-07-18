@@ -25,7 +25,7 @@ To run the front-end application:
 
 ## Sister Repository
 
-This repository's front-end is found [here](https://github.com/sagefell29/MAPML_back-end).
+This repository's back-end is found [here](https://github.com/sagefell29/MAPML_back-end).
 
 ## Contributing
 
