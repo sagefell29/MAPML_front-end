@@ -39,7 +39,7 @@ Contributions to the MAPML project are welcome! If you would like to contribute 
 
 ## Acknowledgements
 
-🙏 We express our heartfelt gratitude to all the contributors and researchers who have provided valuable guidance and support throughout the development of the MAPML project. Your insights and feedback have been instrumental in shaping this application and advancing its capabilities. This project was carried out under the direct supervision of [Dr. Manoj Semwal](mailto:m.semwal@cimap.res.in).
+🙏 I express our heartfelt gratitude to all the contributors and researchers who have provided valuable guidance and support throughout the development of the MAPML project. Your insights and feedback have been instrumental in shaping this application and advancing its capabilities. This project was carried out under the direct supervision of [Dr. Manoj Semwal](mailto:m.semwal@cimap.res.in).
 
 ## License
 
