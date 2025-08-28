@@ -1,99 +1,300 @@
-# MAPML Front-end 📊
+# MAPML Frontend
 
-## Goals of the Project 🎯
+Machine Learning Analysis Platform Frontend - A modern React-based web application for machine learning model training and evaluation.
 
-### Streamlining the Data Analysis Workflow
+## Features
 
-- This project's importance rests in its capacity to streamline and simplify the data analysis process. Data preprocessing and model selection are typically labor-intensive manual processes that call for the creation of bespoke scripts or the usage of numerous tools by researchers.
-- I hope to save researchers considerable time and energy by combining these duties into a single platform, allowing them to concentrate more on the fundamental analysis and interpretation of results.
+### Core Functionalities
+- **Regression Analysis**: Support for multiple regression algorithms with visual results
+- **Classification Analysis**: Support for multiple classification algorithms with confusion matrices
+- **Data Upload**: Drag-and-drop file upload with format validation
+- **Interactive Model Selection**: Visual model selection with descriptions
+- **Real-time Validation**: Form validation with helpful error messages
+- **Result Visualization**: Beautiful charts and metrics display
+- **PDF Export**: Download results as PDF documents
 
-### Empowering Researchers and Data Scientists
+### Frontend Functionalities
+1. **File Management**: CSV file upload with validation and parsing
+2. **Task Selection**: Switch between regression and classification tasks
+3. **Attribute Selection**: Interactive output attribute selection
+4. **Preprocessing Options**: Outlier detection and dimensionality reduction
+5. **Model Selection**: Visual model selection with descriptions
+6. **Result Display**: Comprehensive results with metrics and visualizations
+7. **Error Handling**: User-friendly error messages with suggestions
 
-- This project's goal of enabling academics and data scientists to quickly preprocess their datasets and use a variety of machine learning models, independent of their programming experience, is another key driving force behind it.
-- The platform promotes collaboration and knowledge-sharing among academics, thereby boosting the field of data science, by offering a user-friendly interface and including well-liked preprocessing methods and ML algorithms.
+### New Features
+- **Enhanced UI/UX**: Modern, responsive design with Chakra UI
+- **Toast Notifications**: Real-time feedback for user actions
+- **Form Validation**: Comprehensive input validation
+- **Loading States**: Visual feedback during processing
+- **Error Recovery**: Automatic error clearing and recovery
+- **Responsive Design**: Works on desktop and mobile devices
 
-## Design Principles and Architectural Approach 🏛️
+## Technology Stack
 
-Several design principles and architectural approaches were followed to ensure a robust and scalable system:
+- **React**: Frontend framework
+- **Chakra UI**: Component library for styling
+- **Axios**: HTTP client for API communication
+- **React Papa Parse**: CSV file parsing
+- **HTML2PDF.js**: PDF generation for results
 
-- **Separation of Concerns:** The frontend and backend components are decoupled, with each responsible for distinct functionalities. This separation allows for independent development and deployment, facilitating testing, scalability, and maintenance.
-- **RESTful API-based Framework:** The project follows REST principles for communication between the frontend and backend, promoting clear separation of concerns, standardized API endpoints, and scalability.
-- **Component-Driven Architecture:** The frontend follows a component-driven approach, creating reusable and independent components for UI elements, data processing, and result visualization. This design encourages code reuse, maintainability, and scalability.
-- **Best Practices:** The codebase emphasizes best practices such as error handling, input validation, and security measures to ensure reliability and security.
+## Installation
 
-## System Architecture 🏗️
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd MAPML_front-end
+   ```
 
-- The frontend operates within a client-server architecture, communicating with the Flask backend through API endpoints.
-- It manages state, and component organization to ensure an efficient and organized structure.
-- React components represent individual UI elements, while conditional rendering define different views of the application.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Technology Stack 💻
+3. **Start the development server**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-- The frontend is built using React, a versatile and component-based JavaScript framework known for its reusability and robust ecosystem.
-- Chakra-UI is utilized to expedite UI development, providing pre-styled components and responsive design features.
-- Additionally, the HTML2PDF library is integrated to enable users to download reports and figures generated by the frontend.
-- The CSVReader module is used to extract the names of all columns(attributes) from the uploaded CSV File.
+The application will open in your browser at `http://localhost:3000`
 
-## Front-End Functionalities 📱
+## Usage
 
-1. **Data Upload and Attribute Selection:** Users can upload CSV files containing their datasets via the frontend. The uploaded file is then passed to the Flask backend for processing. Users are prompted to select the output attribute from the available columns, a critical step for subsequent analysis and model training.
-2. **Preprocessing Techniques:** The frontend provides various preprocessing methods, including handling categorical variables, identifying and eliminating outliers, and using dimensionality reduction techniques like Recursive Feature Elimination (RFE) and Principal Component Analysis (PCA). Users can select the specific preprocessing techniques that suit their needs.
-3. **Machine Learning Model Selection:** Users can choose from a variety of machine learning models, including Gaussian naïve bayes, support vector machines, decision trees, random forests, and linear regression. These models can be selected from a list of options for further analysis.
-4. **Model Training and Evaluation:** After selecting the preferred machine learning models, users instruct the Flask backend to train these models using the preprocessed data. The models are trained on appropriate training and validation splits, producing predictions for the selected output attribute. Evaluation measures, including accuracy, precision, recall, F1-score, and mean squared error, are computed to assess model effectiveness.
-5. **Results Presentation and Download:** Users have access to project outcomes in an easily understandable format. Evaluation metrics, such as accuracy and error measurements, are displayed for each chosen model. Visualizations, such as predicted versus actual value graphs, provide deeper insights into model performance. Users can download the results, including model assessment metrics, forecasts, and visualizations, in PDF format for preservation and distribution.
+### Getting Started
 
-## Front-End Development Process 🛠️
+1. **Select Task Type**: Choose between "Regression" or "Classification"
+2. **Upload Dataset**: Select a CSV file from your computer
+3. **Configure Settings**: 
+   - Select output attribute
+   - Choose categorical variable handling
+   - Configure preprocessing options
+   - Select models for analysis
+4. **Submit Analysis**: Click "Submit" to start the analysis
+5. **View Results**: Review metrics, charts, and confusion matrices
+6. **Export Results**: Download results as PDF
 
-The frontend development process was structured and iterative, focusing on the following key stages:
+### File Requirements
 
-1. **Initial Interface:** The development began with creating an intuitive user interface for uploading JSON objects, which would be transformed into DataFrames in the backend.
-2. **CSVReader Module:** The CSVReader module was integrated to facilitate output attribute selection. It extracted column names from uploaded CSV files, empowering users to make informed choices.
-3. **Core Functionalities:** The initial phase included implementing essential frontend functionalities, such as file upload, output attribute selection, and result generation using machine learning models.
-4. **Chart.js Integration:** A significant effort was dedicated to integrating and configuring Chart.js for result visualization. Scatter plots comparing predicted and actual values were created for enhanced data insights.
-5. **Preprocessing Techniques:** Additional preprocessing techniques, including categorical variable handling and outlier detection, were integrated into the frontend.
-6. **Feature Selection and Dimensionality Reduction:** The frontend was further enhanced with feature selection techniques and dimensionality reduction methods like Recursive Feature Elimination (RFE) and Principal Component Analysis (PCA).
-7. **Download Functionality:** Implementing download functionality using Chart.js was a crucial challenge. Data encoding and formatting were carefully managed to enable users to download charts and results for offline access.
-8. **User Experience Refinement:** The frontend received finishing touches to enhance user interaction and visual appeal. Borders and loading spinners were added for a more polished and user-friendly interface.
+- **Format**: CSV files only
+- **Encoding**: UTF-8 recommended
+- **Headers**: First row should contain column names
+- **Data**: Clean, structured data without missing values
 
-## Installation 🚀
+### Supported Models
 
-To set up the front-end for the MAPML project, follow these steps:
+#### Regression Models
+- Linear Regression
+- Support Vector Regression (SVR)
+- Random Forest Regressor
+- Adaptive Boosting Regressor
+- Extra Trees Regressor
+- Huber Regressor
+- Gradient Boosting Regressor
 
-1. Make sure you have Yarn installed on your machine.
-2. Open the terminal and navigate to the `front_end/` directory.
-3. Run the following command to install the required dependencies: ```yarn install```
+#### Classification Models
+- Decision Tree Classifier
+- Random Forest Classifier
+- Support Vector Classifier
+- K-Neighbors Classifier
+- Naive Bayes Classifier
 
-## Usage 📝
+### Preprocessing Options
 
-To run the front-end application:
+#### Outlier Detection
+- **Local Outlier Factor (LOF)**: Density-based outlier detection
+- **Isolation Forest (IF)**: Tree-based outlier detection
 
-1. Open the terminal and navigate to the `front_end/` directory.
-2. Run the following command: ```yarn start```
-3. The front-end application will start running on `http://localhost:3000`.
+#### Dimensionality Reduction
+- **Principal Component Analysis (PCA)**: Linear dimensionality reduction
+- **Recursive Feature Elimination (RFE)**: Feature selection method
 
-## File Structure 📂
+#### Categorical Variable Handling
+- **No operation**: Keep categorical variables as-is
+- **Remove**: Remove all categorical variables
+- **Label Encoding**: Convert categories to numeric labels
+- **One-Hot Encoding**: Create binary columns for each category
 
-- `src/`: Contains the source code for the React.js application.
-- `src/components/`: Includes various components used in the application.
+## Project Structure
 
-## Sister Repository 🤝
+```
+MAPML_front-end/
+├── public/                          # Static files
+│   ├── index.html                   # Main HTML file
+│   └── manifest.json                # Web app manifest
+├── src/                             # Source code
+│   ├── app.js                       # Main application component
+│   ├── index.js                     # Application entry point
+│   ├── components/                  # React components
+│   │   ├── AttributeSelection.js    # File parsing and attribute selection
+│   │   ├── ErrorHandler.js          # Error display component
+│   │   ├── classification/          # Classification components
+│   │   │   ├── ConfusionMatrix.js   # Confusion matrix display
+│   │   │   ├── ModelSelectionC.js   # Classification model selection
+│   │   │   └── ResultsC.js          # Classification results display
+│   │   └── regression/              # Regression components
+│   │       ├── ChartComponent.js    # Regression charts
+│   │       ├── ModelSelectionR.js   # Regression model selection
+│   │       └── ResultsR.js          # Regression results display
+│   └── extras/                      # Additional utilities
+├── package.json                     # Dependencies and scripts
+└── README.md                        # This file
+```
 
-This repository's back-end is found [here](https://github.com/sagefell29/MAPML_back-end).
+## Component Documentation
+
+### Main Components
+
+#### App.js
+Main application component that handles:
+- State management
+- Form submission
+- API communication
+- Error handling
+- Task switching
+
+#### AttributeSelection.js
+Handles file parsing and attribute selection:
+- CSV file parsing
+- Attribute extraction
+- Loading states
+- Error handling
+
+#### ErrorHandler.js
+Displays user-friendly error messages:
+- Error styling
+- Helpful suggestions
+- Consistent error format
+
+### Model Selection Components
+
+#### ModelSelectionR.js
+Regression model selection with:
+- Visual model cards
+- Model descriptions
+- Selection counters
+- Bulk selection options
+
+#### ModelSelectionC.js
+Classification model selection with:
+- Visual model cards
+- Model descriptions
+- Selection counters
+- Bulk selection options
+
+### Results Components
+
+#### ResultsR.js
+Regression results display:
+- Performance metrics
+- Scatter plots
+- Download options
+- PDF export
+
+#### ResultsC.js
+Classification results display:
+- Performance metrics
+- Confusion matrices
+- Download options
+- PDF export
+
+#### ConfusionMatrix.js
+Confusion matrix visualization:
+- Color-coded cells
+- Class labels
+- Legend
+- High contrast design
+
+## API Integration
+
+The frontend communicates with the backend API at `http://127.0.0.1:8000/api`:
+
+### Endpoints
+- `POST /api/predict`: Submit analysis request
+- `GET /api/health`: Check API status
+
+### Request Format
+```javascript
+const formData = new FormData();
+formData.append("dataset", file);
+formData.append("output_Attribute", outputAttribute);
+formData.append("task", selectedTask);
+formData.append("model_Type", selectedModels);
+// ... other parameters
+```
+
+### Response Format
+```javascript
+{
+  status: "success",
+  result: [
+    {
+      model: "model_name",
+      acs: 0.95,
+      ps: 0.94,
+      rs: 0.95,
+      f1s: 0.94,
+      pred: [...],
+      y_test: [...],
+      confusion_matrix: [[...]],
+      classes: [...]
+    }
+  ]
+}
+```
+
+## Error Handling
+
+The frontend implements comprehensive error handling:
+
+### Error Types
+- **File Upload Errors**: Invalid file format, parsing errors
+- **Validation Errors**: Missing required fields, invalid inputs
+- **Network Errors**: Connection issues, timeout errors
+- **API Errors**: Backend processing errors
+
+### Error Display
+- Toast notifications for immediate feedback
+- Detailed error messages with suggestions
+- Automatic error clearing on new actions
+- Graceful error recovery
+
+## Development
+
+### Available Scripts
+
+```bash
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+
+# Eject from Create React App
+npm run eject
+```
+
+### Code Style
+- Use functional components with hooks
+- Follow React best practices
+- Use Chakra UI components for consistency
+- Implement proper error boundaries
+- Add JSDoc comments for complex functions
 
 ## Contributing
 
-Contributions to the MAPML project are welcome! If you would like to contribute to the front-end code, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your forked repository.
-5. Submit a pull request, describing your changes in detail.
-
-## Acknowledgements 🙏
-
-I express my heartfelt gratitude to all the contributors and researchers who have provided valuable guidance and support throughout the development of the MAPML project. Your insights and feedback have been instrumental in shaping this application and advancing its capabilities. This project was carried out under the direct supervision of [Dr. Manoj Semwal](mailto:m.semwal@cimap.res.in).
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
