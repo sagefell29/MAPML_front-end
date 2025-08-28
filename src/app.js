@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ChakraProvider,
   CSSReset,
@@ -31,23 +31,48 @@ const App = () => {
   const [selectedModels, setSelectedModels] = useState(["Linear_Regression"]);
   const [response, setResponse] = useState(null);
   const [selectedTask, setSelectedTask] = useState("regression");
-  const [enableOutlierDetection, setEnableOutlierDetection] = useState(false);
+  const [enableOutlierDetection, setEnableOutlierDetection] = useState("No");
   const [outlierDetectionMethod, setOutlierDetectionMethod] = useState("None");
   const [enableDimensionalityReduction, setEnableDimensionalityReduction] =
-    useState(false);
+    useState("No");
   const [dimensionalityReductionMethod, setDimensionalityReductionMethod] =
     useState("None");
   const [handleCategoricalVariable, setCategoricalVariable] = useState("None");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
+
+  // Reset state when task changes
+  useEffect(() => {
+    // Reset all state except file when task changes
+    setSelectedModels(selectedTask === "regression" ? ["Linear_Regression"] : ["Decision_Tree"]);
+    setOutputAttribute("");
+    setThreshold("0");
+    setEnableOutlierDetection("No");
+    setOutlierDetectionMethod("None");
+    setEnableDimensionalityReduction("No");
+    setDimensionalityReductionMethod("None");
+    setCategoricalVariable("None");
+    setResponse(null);
+    setError(null);
+  }, [selectedTask]);
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
+    // Clear previous results and errors when new file is uploaded
+    setResponse(null);
+    setError(null);
+  };
+
+  const handleTaskChange = (newTask) => {
+    setSelectedTask(newTask);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    // Clear any previous errors when starting new analysis
+    setError(null);
 
     // Prepare form data
     const formData = new FormData();
@@ -79,6 +104,8 @@ const App = () => {
       if (error.response && error.response.data) {
         const errorData = error.response.data;
         setError(errorData);
+      } else {
+        setError({ message: "Network error. Please check your connection." });
       }
       setIsLoading(false);
     }
@@ -105,7 +132,7 @@ const App = () => {
                 </FormLabel>
                 <Select
                   value={selectedTask}
-                  onChange={(e) => setSelectedTask(e.target.value)}
+                  onChange={(e) => handleTaskChange(e.target.value)}
                 >
                   <option value="regression">Regression</option>
                   <option value="classification">Classification</option>
@@ -320,11 +347,9 @@ const App = () => {
         selectedTask === "classification" && (
           <ResultsC output={response.result} />
         )}
-      {error && error.status === "error" && (
+      {error && (
         <ErrorHandler message={error.message} tip={error.tip} />
       )}
-      {/* {error && console.log(error)}
-      {error && console.log(error.tip)} */}
     </ChakraProvider>
   );
 };

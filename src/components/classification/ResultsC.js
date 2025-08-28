@@ -78,7 +78,13 @@ const ResultsC = ({ output }) => {
               <Text>Precision Score: {object.ps}</Text>
               <Text>Recall Score: {object.rs}</Text>
               <Text>F1 Score: {object.f1s}</Text>
-              {/* <ConfusionMatrix y_true={object.y_test} y_pred={object.pred}/> */}
+              
+              <ConfusionMatrix 
+                confusion_matrix={object.confusion_matrix} 
+                classes={object.classes}
+                y_true={object.y_test} 
+                y_pred={object.pred}
+              />
             </Stack>
             <Button
               onClick={() => handleDownload(object.model)}
